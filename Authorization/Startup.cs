@@ -91,7 +91,7 @@ namespace Authorization
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication1 v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BTAUTHORIZATION API v1");
 
             });
             if (env.IsDevelopment())
