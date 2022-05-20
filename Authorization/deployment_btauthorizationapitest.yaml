@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: btauthorizationapi-deployment
+  labels:
+    app: BTAuthorizationAPI
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: BTAuthorizationAPI
+  template:
+    metadata:
+      labels:
+        app: BTAuthorizationAPI
+    spec:
+      containers:
+      - name: btauthorizationapi 
+        image: btprojcr.azurecr.io/btauthorizationimage:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: btpmsvcsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: btauthorizationapisvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: BTAuthorizationAPI
