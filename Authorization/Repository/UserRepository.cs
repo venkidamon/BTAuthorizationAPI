@@ -8,6 +8,8 @@ namespace Authorization.Repository
     {
         private readonly DataContext _context;
 
+        
+
         public UserRepository(DataContext context)
         {
             _context = context;
