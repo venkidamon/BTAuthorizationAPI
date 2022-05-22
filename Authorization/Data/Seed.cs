@@ -11,7 +11,7 @@ namespace Authorization.Data
         {
             if (await context.PensionUser.AnyAsync()) return;
 
-            List<string> users = File.ReadAllLines("../../users.csv").Skip(1).Select(v => v).ToList();
+            List<string> users = File.ReadAllLines("../Authorization/Data/users.csv").Skip(1).Select(v => v).ToList();
             foreach (string user in users)
             {
                 using var hmac = new HMACSHA512();
